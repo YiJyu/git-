@@ -1,81 +1,79 @@
 <template>
-  <v-row justify="center">
-    <v-dialog v-model="CheckoutDlg"
-              max-width="600px">
-      <template v-slot:activator="{on}">
-        <v-btn color="cyan darken-2"
-               dark
-               style="width:130px"
-               v-on="on">Checkout</v-btn>
-      </template>
-      <v-card class="justify-center"
-              elevation="24">
-        <v-card-title class="cyan darken-2 white--text font-weight-bold justify-center">
-          {{CurrentTitle}}
-        </v-card-title>
-        <v-window v-model="step">
-          <v-window-item :value="1">
-            <v-card-text>
-              <v-row justify="center">
-                <v-col cols="12"
-                       sm="10">
-                  <v-text-field label="本次要Checkout的Commit"
-                                required></v-text-field>
-                </v-col>
-                <v-col cols="12"
-                       sm="10">
-                  <v-text-field label="上次Checkout的Commit"
-                                required></v-text-field>
-                </v-col>
-                <v-col cols="12"
-                       sm="10">
-                  <v-text-field label="SCR NO"
-                                required></v-text-field>
-                </v-col>
-                <v-col cols="12"
-                       sm="10">
-                  <v-text-field label="系統名稱"
-                                required></v-text-field>
-                </v-col>
-              </v-row>
-            </v-card-text>
-            <v-card-actions>
-              <v-row justify="end"
-                     class="mr-2 mb-2">
-                <v-btn class="mr-2 cyan--text text--darken-2 text-right"
-                       @click="step = 2">查看已Checkout文件</v-btn>
-                <v-btn class="cyan darken-2 white--text"
-                       @click="CheckoutDlg = false">Checkout文件</v-btn>
-              </v-row>
-            </v-card-actions>
-          </v-window-item>
-          <v-window-item :value="2">
-            <v-card-text>
-              <v-list disabled>
-                <div v-for="(item, i) in items"
-                     :key="i">
-                  <v-list-item>
-                    <v-list-item-content>
-                      <v-list-item-title v-html="item"
-                                         class="text-wrap"></v-list-item-title>
-                    </v-list-item-content>
-                  </v-list-item>
-                  <v-divider></v-divider>
-                </div>
-              </v-list>
-            </v-card-text>
-            <v-card-actions>
-              <v-row justify="center"
-                     class="mr-2 mb-2">
-                <v-btn class="cyan darken-2 white--text"
-                       @click="step = 1">返回</v-btn>
-              </v-row>
-            </v-card-actions>
-          </v-window-item>
-        </v-window>
-      </v-card>
-    </v-dialog>
-  </v-row>
+  <v-dialog v-model="CheckoutDlg"
+            max-width="600px">
+    <template v-slot:activator="{on}">
+      <v-btn color="cyan darken-2"
+             dark
+             style="width:130px"
+             v-on="on">Checkout</v-btn>
+    </template>
+    <v-card class="justify-center"
+            elevation="24">
+      <v-card-title class="cyan darken-2 white--text font-weight-bold justify-center">
+        {{CurrentTitle}}
+      </v-card-title>
+      <v-window v-model="step">
+        <v-window-item :value="1">
+          <v-card-text>
+            <v-row justify="center">
+              <v-col cols="12"
+                     sm="10">
+                <v-text-field label="本次要Checkout的Commit"
+                              required></v-text-field>
+              </v-col>
+              <v-col cols="12"
+                     sm="10">
+                <v-text-field label="上次Checkout的Commit"
+                              required></v-text-field>
+              </v-col>
+              <v-col cols="12"
+                     sm="10">
+                <v-text-field label="SCR NO"
+                              required></v-text-field>
+              </v-col>
+              <v-col cols="12"
+                     sm="10">
+                <v-text-field label="系統名稱"
+                              required></v-text-field>
+              </v-col>
+            </v-row>
+          </v-card-text>
+          <v-card-actions>
+            <v-row justify="end"
+                   class="mr-2 mb-2">
+              <v-btn class="mr-2 cyan--text text--darken-2 text-right"
+                     @click="step = 2">查看已Checkout文件</v-btn>
+              <v-btn class="cyan darken-2 white--text"
+                     @click="CheckoutDlg = false">Checkout文件</v-btn>
+            </v-row>
+          </v-card-actions>
+        </v-window-item>
+        <v-window-item :value="2">
+          <v-card-text>
+            <v-list disabled>
+              <div v-for="(item, i) in items"
+                   :key="i">
+                <v-list-item>
+                  <v-list-item-content>
+                    <v-list-item-title v-html="item"
+                                       class="text-wrap"></v-list-item-title>
+                  </v-list-item-content>
+                </v-list-item>
+                <v-divider></v-divider>
+              </div>
+            </v-list>
+          </v-card-text>
+          <v-card-actions>
+            <v-row justify="center"
+                   class="mr-2 mb-2">
+              <v-btn class="cyan darken-2 white--text"
+                     @click="step = 1">返回</v-btn>
+            </v-row>
+          </v-card-actions>
+        </v-window-item>
+      </v-window>
+    </v-card>
+  </v-dialog>
 </template>
 
 <script>

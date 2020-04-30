@@ -1,13 +1,11 @@
 <template>
   <v-row>
-    <v-col cols="12"
-           md="5">
+    <v-col cols="5">
       <v-menu ref="menuStart"
               v-model="menuStart"
               :close-on-content-click="false"
               transition="scale-transition"
-              offset-y
-              min-width="290px">
+              offset-y>
         <template v-slot:activator="{ on }">
           <v-text-field v-model="dateStart"
                         label="起始日期"
@@ -18,7 +16,7 @@
                        @input="menuStart = false"
                        scrollable
                        no-title
-                       style="height:260px">
+                       class="dateHeight">
         </v-date-picker>
         <v-spacer></v-spacer>
         <v-row class="text-right">
@@ -31,18 +29,17 @@
         </v-row>
       </v-menu>
     </v-col>
-    <v-col class="d-flex align-self-center">
+    <v-col cols="2"
+           class="d-flex align-self-center">
       <span class="font-weight-bold"
             style=" font-size: 20px;">~</span>
     </v-col>
-    <v-col cols="12"
-           md="5">
+    <v-col cols="5">
       <v-menu ref="menuEnd"
               v-model="menuEnd"
               :close-on-content-click="false"
               transition="scale-transition"
-              offset-y
-              min-width="290px">
+              offset-y>
         <template v-slot:activator="{ on }">
           <v-text-field v-model="dateEnd"
                         label="結束日期"
@@ -53,7 +50,7 @@
                        @input="menuEnd = false"
                        scrollable
                        no-title
-                       style="height:260px">
+                       class="dateHeight">
         </v-date-picker>
         <v-spacer></v-spacer>
         <v-row class="text-right">
@@ -91,3 +88,9 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.dateHeight {
+  height: 260px;
+}
+</style>

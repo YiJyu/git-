@@ -1,14 +1,13 @@
 <template>
-  <v-dialog v-model="DlgRepository"
+  <v-dialog v-model="RepositoryDlg"
             max-width="500px"
             persistent>
     <template v-slot:activator="{ on }">
       <v-btn color="orange"
-             class="pa-auto"
+             class="pa-auto repositoryBtn"
              dark
              rounded
              absolute
-             style="bottom:50px;right:50px"
              v-on="on"
              @click="ChangeExp">
         Repository
@@ -20,7 +19,7 @@
         <!-- 登入 -->
         <v-window-item :value="1">
           <v-card-title class="white--text orange  font-weight-bold justify-center">
-            登入
+            Git 帳號
           </v-card-title>
           <v-card-text>
             <v-row justify="center"
@@ -86,7 +85,7 @@
 </template>
 
 <script>
-import AddRepo from "./AddRepo";
+import AddRepo from "../AddRepo";
 import { mapState, mapMutations } from "vuex";
 
 export default {
@@ -94,7 +93,7 @@ export default {
   data: () => ({
     repository: ["CITI_IISS", "CITI_CARD_SPM"], //Repository資料
     repo: "", //選取的Repository資料
-    DlgRepository: true, //是否顯示此Dialog
+    RepositoryDlg: true, //是否顯示此Dialog
     step: 1 //顯示的windows位置
   }),
   components: {
@@ -105,7 +104,7 @@ export default {
     //選取Repository
     SaveRepo: function() {
       this.$store.commit("ChangeRepository", this.repo);
-      this.DlgRepository = false;
+      this.RepositoryDlg = false;
       if (this.expAddRepo === true) {
         this.$store.commit("ChangeExpRepoAdd");
       }
@@ -129,8 +128,15 @@ export default {
 </script>
 
 <style scoped>
+.plus {
+  transition-duration: 0.5s;
+}
 .plus:hover {
   opacity: 0.8;
   cursor: pointer;
+}
+.repositoryBtn {
+  bottom: 6vh;
+  right: 5vw;
 }
 </style>
