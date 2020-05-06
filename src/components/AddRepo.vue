@@ -16,7 +16,7 @@
         <v-btn rounded
                color="teal lighten-1 "
                dark
-               @click="ChangeExpRepoAdd">Clone</v-btn>
+               @click="CloneRepository">Clone</v-btn>
       </div>
     </v-card-text>
   </v-card>
@@ -28,7 +28,11 @@ import { mapMutations } from "vuex";
 export default {
   name: "AddRepo",
   methods: {
-    ...mapMutations(["ChangeExpRepoAdd"])
+    ...mapMutations(["ChangeExpRepoAdd"]),
+    //Clone Repository(API** Clone)
+    CloneRepository: function() {
+      this.$store.commit("ChangeExpRepoAdd");
+    }
   }
 };
 </script>

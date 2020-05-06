@@ -91,7 +91,7 @@ import { mapState, mapMutations } from "vuex";
 export default {
   name: "DlgRepository",
   data: () => ({
-    repository: ["CITI_IISS", "CITI_CARD_SPM"], //Repository資料
+    repository: ["CITI_IISS", "CITI_CARD_SPM"], //Repository資料(API** Repository資料)
     repo: "", //選取的Repository資料
     RepositoryDlg: true, //是否顯示此Dialog
     step: 1 //顯示的windows位置
@@ -109,7 +109,7 @@ export default {
         this.$store.commit("ChangeExpRepoAdd");
       }
     },
-    //登入
+    //登入(API** 登入GIT帳號)
     SaveLogIn: function() {
       this.step = 2;
     },

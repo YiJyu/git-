@@ -49,17 +49,21 @@
 <script>
 import DatePicker from "./DatePicker";
 import Commit from "./Commit";
+import { mapState } from "vuex";
 
 export default {
   data: () => ({
     initShow: true, //是否顯示「外層選擇Branch」
     expSelect: false, //是否顯示「分支select」
-    branchs: ["Dev", "Uat", "Master"], //分支選項(api)
+    branchs: ["Dev", "Uat", "Master"], //分支選項(API** 分支)
     branch: "" //選擇的分支,
   }),
   components: {
     DatePicker,
     Commit
+  },
+  computed: {
+    ...mapState(["allhide"])
   },
   methods: {
     //顯示分支下拉選單
@@ -69,9 +73,17 @@ export default {
     //顯示或關閉commit資訊
     CommitOrBranch: function() {
       this.initShow = !this.initShow;
+      this.$store.commit("HideCommit");
       setTimeout(() => {
         this.expSelect = !this.expSelect;
       }, 100);
+    }
+  },
+  watch: {
+    allhide: function() {
+      if (this.allhide === true) {
+        this.initShow = true;
+      }
     }
   }
 };

@@ -46,10 +46,11 @@ import { mapState, mapMutations } from "vuex";
 export default {
   props: ["initShow", "branch"],
   data: () => ({
-    menu: menu //commit內容(api)
+    menu: menu //commit內容(API** COMMIT)
   }),
   computed: {
     ...mapState({
+      allhide: "allhide",
       selectedCommit: "selectedCommit"
     })
   },
@@ -62,6 +63,13 @@ export default {
     //Commit畫面轉Branch畫面
     CommitToBranch: function() {
       this.$emit("CommitToBranch");
+    }
+  },
+  watch: {
+    allhide: function() {
+      if (this.allhide === true) {
+        this.initShow = true;
+      }
     }
   }
 };

@@ -44,7 +44,7 @@
               <v-btn class="mr-2 cyan--text text--darken-2 text-right"
                      @click="step = 2">查看已Checkout文件</v-btn>
               <v-btn class="cyan darken-2 white--text"
-                     @click="CheckoutDlg = false">Checkout文件</v-btn>
+                     @click="CheckoutFile">Checkout文件</v-btn>
             </v-row>
           </v-card-actions>
         </v-window-item>
@@ -82,7 +82,7 @@ export default {
     CheckoutDlg: false, //是否顯示此dialog
     step: 1, //顯示的window位置
     items: [
-      //已Checkout過文件
+      //已Checkout過文件(API** 已CHECKOUT文件)
       "CapOne/DBModels/SqlServer1.generated.cs",
       "IISS/Areas/IISS/Controllers/AlertDetailController.csIISS/Areas/IISS/Controllers/AlertDetailController.cs",
       "IISS/Areas/IISS/Controllers/AttachmentController.cs",
@@ -127,6 +127,12 @@ export default {
       "IISS/Content/Style/images/avatars/L8917.gif"
     ]
   }),
+  methods: {
+    //產生Checkout文件(api** 產生Checkout文件)
+    CheckoutFile: function() {
+      this.CheckoutDlg = false;
+    }
+  },
   computed: {
     //依window的位置顯示標題
     CurrentTitle: function() {

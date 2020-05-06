@@ -44,9 +44,9 @@
       <v-card-actions>
         <v-row justify="center">
           <v-btn class="ma-1 light-blue darken-3 white--text"
-                 @click="ChangeFromDlg = false">ChangeForm(UAT)文件</v-btn>
+                 @click="ChangeFormUAT">ChangeForm(UAT)文件</v-btn>
           <v-btn class="ma-1 light-blue darken-3 white--text"
-                 @click="ChangeFromDlg = false">ChangeForm(PROD)文件</v-btn>
+                 @click="ChangeFormPROD">ChangeForm(PROD)文件</v-btn>
         </v-row>
       </v-card-actions>
     </v-card>
@@ -57,6 +57,16 @@
 export default {
   data: () => ({
     ChangeFromDlg: false //是否顯示此dialog
-  })
+  }),
+  methods: {
+    //產ChangeForm(UAT)文件(API** 產ChangeForm(UAT)文件)
+    ChangeFormUAT: function() {
+      this.ChangeFromDlg = false;
+    },
+    //產ChangeForm(PROD)文件(API** 產ChangeForm(PROD)文件)
+    ChangeFormPROD: function() {
+      this.ChangeFromDlg = false;
+    }
+  }
 };
 </script>

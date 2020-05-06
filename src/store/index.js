@@ -5,9 +5,10 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    repository:"", //選取的repository
+    repository:"",//選取的repository
     expAddRepo:false,//是否顯示「新增Repository的Expand區域」
-    selectedCommit:[]//選取Commit
+    selectedCommit:[],//選取Commit
+    allhide: false//判斷選擇Repository，是否顯示Branch或Commit
   }, 
   getters:{
   },
@@ -15,6 +16,11 @@ export default new Vuex.Store({
     //儲存選取的repository
     ChangeRepository(state,repo) {
       state.repository=repo;
+      state.allhide=true;
+    },
+    //選擇Repository後，重新選擇Branch
+    HideCommit(state){
+      state.allhide=false;
     },
     //改變是否顯示「新增Repository的Expand區域」
     ChangeExpRepoAdd(state) {

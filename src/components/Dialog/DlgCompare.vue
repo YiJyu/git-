@@ -41,7 +41,7 @@ export default {
   data: () => ({
     CompareDlg: false, //是否顯示此dialog
     items: [
-      //比對資料
+      //比對資料(API** 比對COMMIT檔案)
       "CapOne/DBModels/SqlServer1.generated.cs",
       "IISS/Areas/IISS/Controllers/AlertDetailController.cs",
       "IISS/Areas/IISS/Controllers/AttachmentController.cs",
